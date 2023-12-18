@@ -1,5 +1,5 @@
 # CS-3500
-A repository storing all the assignment code for my CS 3500 class
+A repository storing the code for all my assignments in my CS 3500 class
 
 ![image](https://github.com/ajc3xc/CS-3500/assets/91383782/9bb6a083-8bfb-483d-8f88-4c7200cd67d2)<br/>
 
