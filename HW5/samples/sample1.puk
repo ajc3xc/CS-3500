@@ -1,0 +1,5 @@
+FUNCTION main ( )
+  x := 2 + 2 ;
+  WRITE ( x * 100 )
+END.
+

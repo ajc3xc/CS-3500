@@ -1,0 +1,5 @@
+FUNCTION foo ( z ) 
+  foo := 12 * foo + a
+  RETURN ( z )
+END.
+

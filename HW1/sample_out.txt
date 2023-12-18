@@ -1,0 +1,17 @@
+16
+1: Integer
+2: Decimal
+3: Keyword
+4: Hexadecimal
+5: Scientific
+6: INVALID!
+7: Identifier
+8: INVALID!
+9: INVALID!
+10: Integer
+11: Character
+12: Identifier
+13: String
+14: INVALID!
+15: Keyword
+16: INVALID!

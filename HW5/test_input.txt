@@ -1,0 +1,5 @@
+FUNCTION bar ( x ) 
+  x := 0 ;
+  Read ( y )
+  RETURN ( x )
+END.

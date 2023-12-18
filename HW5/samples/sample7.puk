@@ -1,0 +1,15 @@
+FUNCTION pow ( b , p )
+  IF p = 1 THEN
+    res := b
+  ELSE
+    n := p DIV 2 ;
+    res := pow ( b , n ) ;
+    IF p MOD 2 = 0 THEN
+      res := res * res
+    ELSE
+      res := res * res * b
+    FI
+  FI
+  RETURN ( res )
+END.
+

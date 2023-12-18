@@ -1,0 +1,88 @@
+FUNCTION ST_Add ( ) ;
+FUNCTION ST_isIn ( ) ;
+FUNCTION ST_GetType ( ) ; 
+
+FUNCTION Error ( ) ;
+FUNCTION TypeError ( ) ;
+
+FUNCTION GetToken ( ) ;
+FUNCTION IsIdentifier ( s ) ;
+FUNCTION IsDecimal ( s ) ;
+FUNCTION IsString ( s ) ;
+
+FUNCTION IsPrintStatement ( ) ;
+FUNCTION IsIfStatement ( ) ;
+FUNCTION IsWhileStatement ( ) ;
+FUNCTION IsReturnStatement ( ) ;
+FUNCTION IsFunctionCall ( ) ;
+FUNCTION IsAssignment ( ) ;
+
+FUNCTION IsRelation ( s ) 
+  res := ( s = ">" ) OR ( s = "<" ) OR
+         ( s = "=" ) OR ( s = "#" )
+  RETURN ( res )
+END. 
+
+FUNCTION AddOperator ( s ) 
+  res := ( s = "+" ) OR ( s = "-" ) OR
+         ( s = "OR" ) OR ( s = "&" )
+  RETURN ( res )
+END.
+
+FUNCTION MulOperator ( s ) 
+  res := ( s = "*" ) OR ( s = "/" ) OR
+         ( s = "AND" ) OR 
+         ( s = "MOD" ) OR
+         ( s = "DIV" )
+  RETURN ( res )
+END.
+
+
+FUNCTION IsDesignator ( )
+  IF IsIdentifier ( token ) THEN
+    Error ( )
+  ELSE
+    Error ( ) 
+  FI
+END.
+
+
+FUNCTION IsStatement ( )
+  IF ( token = "PRINT" ) THEN
+    IsPrintStatement ( )
+  ELSE IF ( token = "IF" ) THEN
+    IsIfStatement ( )
+  ELSE IF ( token = "WHILE" ) THEN
+    IsWhileStatement ( )
+  ELSE IF ( token = "RETURN" ) THEN
+    IsReturnStatement ( )
+  ELSE IF ( token = "IF" ) THEN
+    IsIfStatement ( )
+  ELSE IF ( IsIdentifier ( token ) ) THEN
+    IF ( ST_GetType ( ) = "function" ) THEN
+       IsFunctionCall ( )
+    ELSE IF ( ST_GetType ( ) = "variable" ) THEN
+       IsAssignment ( )
+    ELSE 
+       Error ( ) 
+    FI
+    FI
+  FI
+  FI
+  FI
+  FI
+  FI
+  FI
+END.
+
+FUNCTION IsStatementSequence ( )
+  IF IsStatement ( ) THEN
+    LOOP ( token = ";" ) DO
+      GetToken ( ) ;
+      IsStatement ( ) 
+    POOL
+  FI
+END.
+
+!#@$@$%!@$
+##########

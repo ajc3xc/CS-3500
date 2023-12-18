@@ -1,0 +1,162 @@
+samples/sample1.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'main', '(', ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'x'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '2'}]}]}, '+', {'Term': [{'Factor': [{'Integer': '2'}]}]}]}]}]}]}, ';', {'Statement': [{'WriteStatement': ['WRITE', '(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'x'}]}, '*', {'Factor': [{'Integer': '100'}]}]}]}]}, ')']}]}]}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 2
+main        function
+x           variable
+
+samples/sample10.puk
+INVALID!
+Variable "name" used as a function.
+
+samples/sample11.puk
+INVALID!
+Variable "name" used as a function.
+
+samples/sample12.puk
+INVALID!
+Function "zap" used as a variable.
+
+samples/sample13.puk
+INVALID!
+Function "zap" used as a variable.
+
+samples/sample14.puk
+INVALID!
+Function "foo" used as a variable.
+
+samples/sample15.puk
+INVALID!
+Function "foo" used as a variable.
+
+samples/sample16.puk
+INVALID!
+Function declaration expected, got "void".
+
+samples/sample17.puk
+INVALID!
+Identifier expected, got "LOOP".
+
+samples/sample18.puk
+INVALID!
+Function declaration expected, got "PROCEDURE".
+
+samples/sample18A.puk
+INVALID!
+"END." expected, reached end of file.
+
+samples/sample19.puk
+INVALID!
+Statement expected, got "END.".
+
+samples/sample2.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'main', '(', ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'WriteStatement': ['WRITE', '(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'String': '"Hello"'}]}]}]}]}, ')']}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'x'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '2'}]}]}, '+', {'Term': [{'Factor': [{'Integer': '2'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'y'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '3'}]}, '*', {'Factor': [{'Identifier': 'x'}]}, '/', {'Factor': [{'Decimal': '7.5'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'p'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'x'}]}]}]}, '>', {'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}, ')']}, 'AND', {'Factor': ['~', {'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'y'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '30'}]}]}]}]}, ')']}]}]}]}]}]}]}, ';', {'Statement': [{'WriteStatement': ['WRITE', '(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'x'}]}, '*', {'Factor': [{'Identifier': 'y'}]}]}]}]}, ')']}]}]}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 4
+main        function
+x           variable
+y           variable
+p           variable
+
+samples/sample20.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'qsort', '(', {'ParamSequence': [{'Identifier': 'arr'}, ',', {'Identifier': 'l'}, ',', {'Identifier': 'r'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'i'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'l'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'j'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'r'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'mid'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'l'}]}]}, '+', {'Term': [{'Factor': [{'Identifier': 'r'}]}]}]}]}, ')']}, 'DIV', {'Factor': [{'Integer': '2'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'piv'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'mid'}]}]}]}]}, ']']}]}]}]}]}]}]}]}, ';', {'Statement': [{'LoopStatement': ['LOOP', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}]}]}, 'DO', {'StatementSequence': [{'Statement': [{'LoopStatement': ['LOOP', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}]}, ']']}]}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'piv'}]}]}]}]}, 'DO', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'i'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}, '+', {'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}]}]}]}, 'POOL']}]}, ';', {'Statement': [{'LoopStatement': ['LOOP', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'piv'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}]}]}, ']']}]}]}]}]}]}, 'DO', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'j'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}, '-', {'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}]}]}]}, 'POOL']}]}, ';', {'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'w'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}]}, ']']}]}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}]}, ']']}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}]}]}, ']']}]}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}]}]}, ']']}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'w'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'i'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}, '+', {'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'j'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}, '-', {'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}]}]}]}, 'FI']}]}]}, 'POOL']}]}, ';', {'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'l'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'j'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['qsort', '(', {'ParamSequence': [{'Identifier': 'arr'}, ',', {'Identifier': 'l'}, ',', {'Identifier': 'j'}]}, ')']}]}]}, 'FI']}]}, ';', {'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'r'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['qsort', '(', {'ParamSequence': [{'Identifier': 'arr'}, ',', {'Identifier': 'i'}, ',', {'Identifier': 'r'}]}, ')']}]}]}, 'FI']}]}]}, 'END.']}]}, {'FunctionDeclaration': ['FUNCTION', 'QuickSort', '(', {'ParamSequence': [{'Identifier': 'arr'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'zero'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'len'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '3'}]}]}]}]}, ']', {'Selector': ['.', 'length']}]}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['.', 'length']}]}]}]}]}]}]}]}, ';', {'Statement': [{'FunctionCall': ['qsort', '(', {'ParamSequence': [{'Identifier': 'arr'}, ',', {'Identifier': 'zero'}, ',', {'Identifier': 'len'}]}, ')']}]}]}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 13
+qsort       function
+arr         variable
+l           variable
+r           variable
+i           variable
+j           variable
+mid         variable
+piv         variable
+w           variable
+QuickSort   function
+zero        variable
+len         variable
+length      variable
+
+samples/sample21.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'ST_Add', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'ST_isIn', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'ST_GetType', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'Error', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'TypeError', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'GetToken', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsIdentifier', '(', {'ParamSequence': [{'Identifier': 's'}]}, ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsDecimal', '(', {'ParamSequence': [{'Identifier': 's'}]}, ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsString', '(', {'ParamSequence': [{'Identifier': 's'}]}, ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsPrintStatement', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsIfStatement', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsWhileStatement', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsReturnStatement', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsFunctionCall', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsAssignment', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsRelation', '(', {'ParamSequence': [{'Identifier': 's'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '">"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"<"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"="'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"#"'}]}]}]}]}, ')']}]}]}]}]}]}]}, {'ReturnStatement': ['RETURN', '(', 'res', ')']}, 'END.']}]}, {'FunctionDeclaration': ['FUNCTION', 'AddOperator', '(', {'ParamSequence': [{'Identifier': 's'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"+"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"-"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"OR"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"&"'}]}]}]}]}, ')']}]}]}]}]}]}]}, {'ReturnStatement': ['RETURN', '(', 'res', ')']}, 'END.']}]}, {'FunctionDeclaration': ['FUNCTION', 'MulOperator', '(', {'ParamSequence': [{'Identifier': 's'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"*"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"/"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"AND"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"MOD"'}]}]}]}]}, ')']}]}, 'OR', {'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 's'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"DIV"'}]}]}]}]}, ')']}]}]}]}]}]}]}, {'ReturnStatement': ['RETURN', '(', 'res', ')']}, 'END.']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsDesignator', '(', ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'FunctionCall': ['IsIdentifier', '(', {'ParamSequence': [{'Identifier': 'token'}]}, ')']}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['Error', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'FunctionCall': ['Error', '(', ')']}]}]}, 'FI']}]}]}, 'END.']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsStatement', '(', ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'token'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"PRINT"'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['IsPrintStatement', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'token'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"IF"'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['IsIfStatement', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'token'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"WHILE"'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['IsWhileStatement', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'token'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"RETURN"'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['IsReturnStatement', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'token'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"IF"'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['IsIfStatement', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'FunctionCall': ['IsIdentifier', '(', {'ParamSequence': [{'Identifier': 'token'}]}, ')']}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'FunctionCall': ['ST_GetType', '(', ')']}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"function"'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['IsFunctionCall', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'FunctionCall': ['ST_GetType', '(', ')']}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '"variable"'}]}]}]}]}, ')']}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'FunctionCall': ['IsAssignment', '(', ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'FunctionCall': ['Error', '(', ')']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'END.']}]}, {'FunctionDeclaration': ['FUNCTION', 'IsStatementSequence', '(', ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'FunctionCall': ['IsStatement', '(', ')']}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'LoopStatement': ['LOOP', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': ['(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'token'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'String': '";"'}]}]}]}]}, ')']}]}]}]}, 'DO', {'StatementSequence': [{'Statement': [{'FunctionCall': ['GetToken', '(', ')']}]}, ';', {'Statement': [{'FunctionCall': ['IsStatement', '(', ')']}]}]}, 'POOL']}]}]}, 'FI']}]}]}, 'END.', '!#@$@$%!@$', '##########']}]}]}
+CORRECT
+Symbol Table : size 24
+ST_Add      function
+ST_isIn     function
+ST_GetType  function
+Error       function
+TypeError   function
+GetToken    function
+IsIdentifier function
+s           variable
+IsDecimal   function
+IsString    function
+IsPrintStatement function
+IsIfStatement function
+IsWhileStatement function
+IsReturnStatement function
+IsFunctionCall function
+IsAssignment function
+IsRelation  function
+res         variable
+AddOperator function
+MulOperator function
+IsDesignator function
+token       variable
+IsStatement function
+IsStatementSequence function
+
+samples/sample3.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'fibo', '(', {'ParamSequence': [{'Identifier': 'n'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'x'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'y'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '2'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'c'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '3'}]}]}]}]}]}]}, ';', {'Statement': [{'LoopStatement': ['LOOP', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'c'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'n'}]}]}]}]}, 'DO', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'x'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'x'}]}]}, '+', {'Term': [{'Factor': [{'Identifier': 'y'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'y'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'x'}]}]}, '-', {'Term': [{'Factor': [{'Identifier': 'y'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'c'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'c'}]}]}, '+', {'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}]}]}]}, 'POOL']}]}]}, {'ReturnStatement': ['RETURN', '(', 'x', ')']}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 5
+fibo        function
+n           variable
+x           variable
+y           variable
+c           variable
+
+samples/sample4.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'gcd', '(', {'ParamSequence': [{'Identifier': 'a'}, ',', {'Identifier': 'b'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'LoopStatement': ['LOOP', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'a'}]}]}]}, '#', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'b'}]}]}]}]}, 'DO', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'a'}]}]}]}, '>', {'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'b'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'a'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'a'}]}, 'MOD', {'Factor': [{'Identifier': 'b'}]}]}]}]}]}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'b'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'b'}]}, 'MOD', {'Factor': [{'Identifier': 'a'}]}]}]}]}]}]}]}, 'FI']}]}]}, 'POOL']}]}]}, {'ReturnStatement': ['RETURN', '(', 'a', ')']}, 'END.']}]}, {'FunctionDeclaration': ['FUNCTION', 'hello', '(', ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'WriteStatement': ['WRITE', '(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'String': '"Hello"'}]}]}, '&', {'Term': [{'Factor': [{'String': '"World!"'}]}]}]}]}, ')']}]}]}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 4
+gcd         function
+a           variable
+b           variable
+hello       function
+
+samples/sample5.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'sum', '(', {'ParamSequence': [{'Identifier': 'arr'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'i'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}]}]}, ';', {'Statement': [{'LoopStatement': ['LOOP', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}, '<', {'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['.', 'length']}]}]}]}]}]}, 'DO', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Designator': [{'Identifier': 'arr'}, {'Selector': ['[', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}]}]}, ']']}]}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'i'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'i'}]}]}, '+', {'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}]}]}]}, 'POOL']}]}]}, {'ReturnStatement': ['RETURN', '(', 'res', ')']}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 5
+sum         function
+arr         variable
+res         variable
+i           variable
+length      variable
+
+samples/sample6.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'Read', '(', ')', {'FunctionBody': [';']}]}, {'FunctionDeclaration': ['FUNCTION', 'FizzBuzz', '(', ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'FunctionCall': ['Read', '(', {'ParamSequence': [{'Identifier': 'n'}]}, ')']}]}, ';', {'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'n'}]}, 'MOD', {'Factor': [{'Integer': '3'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'n'}]}, 'MOD', {'Factor': [{'Integer': '5'}]}]}]}, '#', {'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'WriteStatement': ['WRITE', '(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'String': '"Fizz"'}]}]}]}]}, ')']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'WriteStatement': ['WRITE', '(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'String': '"FizzBuzz"'}]}]}]}]}, ')']}]}]}, 'FI']}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'n'}]}, 'MOD', {'Factor': [{'Integer': '5'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'WriteStatement': ['WRITE', '(', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'String': '"Buzz"'}]}]}]}]}, ')']}]}]}, 'FI']}]}]}, 'FI']}]}]}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 3
+Read        function
+FizzBuzz    function
+n           variable
+
+samples/sample7.puk
+{'DeclarationSequence': [{'FunctionDeclaration': ['FUNCTION', 'pow', '(', {'ParamSequence': [{'Identifier': 'b'}, ',', {'Identifier': 'p'}]}, ')', {'FunctionBody': [{'StatementSequence': [{'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'p'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '1'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'b'}]}]}]}]}]}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'n'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'p'}]}, 'DIV', {'Factor': [{'Integer': '2'}]}]}]}]}]}]}, ';', {'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'FunctionCall': ['pow', '(', {'ParamSequence': [{'Identifier': 'b'}, ',', {'Identifier': 'n'}]}, ')']}]}]}]}]}]}]}, ';', {'Statement': [{'IfStatement': ['IF', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'p'}]}, 'MOD', {'Factor': [{'Integer': '2'}]}]}]}, '=', {'SimpleExpression': [{'Term': [{'Factor': [{'Integer': '0'}]}]}]}]}, 'THEN', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'res'}]}, '*', {'Factor': [{'Identifier': 'res'}]}]}]}]}]}]}]}, 'ELSE', {'StatementSequence': [{'Statement': [{'Assignment': [{'Designator': [{'Identifier': 'res'}]}, ':=', {'Expression': [{'SimpleExpression': [{'Term': [{'Factor': [{'Identifier': 'res'}]}, '*', {'Factor': [{'Identifier': 'res'}]}, '*', {'Factor': [{'Identifier': 'b'}]}]}]}]}]}]}]}, 'FI']}]}]}, 'FI']}]}]}, {'ReturnStatement': ['RETURN', '(', 'res', ')']}, 'END.']}]}]}
+CORRECT
+Symbol Table : size 5
+pow         function
+b           variable
+p           variable
+res         variable
+n           variable
+
+samples/sample8.puk
+INVALID!
+Undefined function "Read".
+
+samples/sample9.puk
+INVALID!
+Undefined function "sum".
+

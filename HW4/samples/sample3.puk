@@ -1,0 +1,4 @@
+WRITE ( a # b ) ;
+flag := a > b ; 
+a := a - b ; b := b - a ;
+WRITE ( "Hello" & "World!" )

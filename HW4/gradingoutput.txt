@@ -1,0 +1,17 @@
+samples/sample1.puk
+CORRECT
+
+samples/sample2.puk
+CORRECT
+
+samples/sample3.puk
+CORRECT
+
+samples/sample4.puk
+INVALID!
+Error: Factor expected, got "*"
+
+samples/sample5.puk
+INVALID!
+Error: ":=" expected, got "getToken"
+

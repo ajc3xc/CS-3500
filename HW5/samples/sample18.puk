@@ -1,0 +1,3 @@
+PROCEDURE main ( )
+  WRITE ( "HelloWorld" )
+

@@ -1,0 +1,17 @@
+FUNCTION Read ( ) ;
+
+FUNCTION FizzBuzz ( )
+  Read ( n ) ;
+  IF n MOD 3 = 0 THEN
+    IF n MOD 5 # 0 THEN 
+      WRITE ( "Fizz" )
+    ELSE
+      WRITE ( "FizzBuzz" )
+    FI
+  ELSE
+    IF n MOD 5 = 0 THEN 
+      WRITE ( "Buzz" )
+    FI
+  FI
+END.
+

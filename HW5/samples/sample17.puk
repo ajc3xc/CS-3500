@@ -1,0 +1,5 @@
+FUNCTION foo ( LOOP )
+  x := END. ;
+  WRITE ( RETURN ) ;
+IF
+

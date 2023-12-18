@@ -1,0 +1,8 @@
+FUNCTION main ( )
+  WRITE ( "Hello" ) ; 
+  x := 2 + 2 ;
+  y := 3 * x / 7.5 ;
+  p := ( x > 0 ) AND ~ ( y < 30 ) ;
+  WRITE ( x * y )
+END.
+

@@ -1,0 +1,6 @@
+FUNCTION foo ( z ) 
+  a := z / 2 ;
+  foo := 12
+  RETURN ( z )
+END.
+

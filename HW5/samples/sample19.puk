@@ -1,0 +1,6 @@
+FUNCTION blah ( w )
+LOOP w > 0 DO
+  x := w ;
+  WRITE ( w ) ;
+END.
+

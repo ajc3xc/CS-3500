@@ -1,0 +1,4 @@
+FUNCTION zap ( z )
+  x := 12 * zap
+END.
+

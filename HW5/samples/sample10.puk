@@ -1,0 +1,5 @@
+FUNCTION zap ( x ) 
+  name := "bob" ;
+  z := name ( a )
+END.
+

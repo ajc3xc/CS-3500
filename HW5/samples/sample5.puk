@@ -1,0 +1,9 @@
+FUNCTION sum ( arr ) 
+  res := 0 ;  i := 0 ;
+  LOOP i < arr . length DO
+    res := arr [ i ] ;
+    i := i + 1 
+  POOL
+  RETURN ( res )
+END.
+

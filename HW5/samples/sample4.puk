@@ -1,0 +1,15 @@
+FUNCTION gcd ( a , b ) 
+  LOOP a # b DO 
+    IF a > b THEN
+      a := a MOD b
+    ELSE
+      b := b MOD a 
+    FI
+  POOL
+  RETURN ( a )
+END.
+
+FUNCTION 
+hello ( )
+  WRITE ( "Hello" & "World!" ) END.
+
