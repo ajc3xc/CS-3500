@@ -1,0 +1,9 @@
+LOOP a # b DO
+  IF a > b THEN
+    a := a - b
+  ELSE
+    b := b - a
+  FI
+POOL ;
+WRITE ( "Hello" &
+         "World!" )

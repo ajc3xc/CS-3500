@@ -1,0 +1,4 @@
+WRITE WRITE ;
+  x := LOOP ;
+  WRITE ( : ) ;
+IF
